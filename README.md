@@ -6,7 +6,14 @@ En esta clase vamos a ver diccionarios: qué son, como se usan y los metodos que
 
 [Enlace a la presentación](https://docs.google.com/presentation/d/1sOnLCIYSglnRJEieR-R55GDUoq-nIQq1QR2lYf--cTA/edit?usp=sharing\])
 
-# Ejercicio:
+# Ejercicios:
+
+Escribir un programa que permita:
+
+1. Dar de alta a un alumno, ingresando su nombre, apellido y padrón. Estos datos deben ser guardados en un diccionario.
+2. Permitir la busqueda de un alumno por su nombre. Imprimir su información si se encuentra, o un mensaje de error si
+   no.
+3. Imprimir la información de todos los alumnos guardados. Pueden ser guardados en una lista.<br><br>
 
 La marca de prendas deportivas Algodidas, tras la victoria albiceleste en el mundial de la FIFA, tiene una demanda
 altísima por las camisetas de los jugadores. Ante tal volumen de compras, decidieron pedirle ayuda a informáticos para
