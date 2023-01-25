@@ -13,7 +13,7 @@ altísima por las camisetas de los jugadores. Ante tal volumen de compras, decid
 desarrollar un sistema que funcione como base de datos. Deberá contar con opciones de alta, baja, consulta y
 modificación, cumpliendo las siguientes consignas:
 <ol>
-    <li>Dar de alta un nuevo <em>modelo</em> de camiseta y deberá contar con el stock disponible para cada uno
+    <li>Dar de alta un nuevo <em>modelo</em> de camiseta, junto con el stock disponible para cada uno
     de los talles:
     <ol>
         <li>
@@ -35,7 +35,7 @@ modificación, cumpliendo las siguientes consignas:
     El precio ingresado <strong>será el mismo</strong> para todos los talles.
     Todos los modelos deberán ser guardados en un <em>diccionario</em>, con el nombre del modelo como llave.
     El stock inicial para cada talle será el mismo, pero deben ser contados por separado.<br>
-    ej: Titular 2 estrellas, Suplente 3 estrellas, etc.
+    Ejemplos de nombres: Titular 2 estrellas, Suplente 3 estrellas, etc.
     <li>Dar de baja un modelo especifico, borrando totalmente los registros.</li>
     <li>Comprar una camiseta: se deberá ingresar el modelo, el talle y la cantidad de camisetas a comprar.
     </li>
@@ -43,7 +43,7 @@ modificación, cumpliendo las siguientes consignas:
     </li>
     <li>Cambiar precio: se deberá ingresar el modelo y el nuevo precio.
     </li>
-    <li>Calcular, dado un modelo, el valor total en base al precio y a la cantidad de camisetas.
+    <li>Calcular, dado un modelo, el valor total en base al precio y a la cantidad de camisetas en stock.
     <li>Mostrar el valor final de las ventas. Se debe considerar el precio de una camiseta al momento de la compra.
     </li>
     <li>Salir del programa.
