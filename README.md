@@ -2,7 +2,7 @@
 
 En esta clase vamos a ver diccionarios: qué son, como se usan y los metodos que Python provee.
 
-# Enlace a la presentación:
+# Presentación:
 
 [Enlace a la presentación](https://docs.google.com/presentation/d/1sOnLCIYSglnRJEieR-R55GDUoq-nIQq1QR2lYf--cTA/edit?usp=sharing\])
 
