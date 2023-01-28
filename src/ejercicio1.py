@@ -44,11 +44,13 @@ def buscarAlumno(alumnos: list) -> dict | None:
     POST: Devuelve el alumno buscado si coincide el nombre ingresado, None en caso contrario.
     """
     nombre = input("Ingrese el nombre a buscar: ")
-    # Esto seria mejor si fuese un while.
-    for alumno in alumnos:
-        if alumno["Nombre"] == nombre:
-            return alumno
-    return None
+    indice = 0
+    alumnoBuscado = None
+    while indice < len(alumnos) and alumnoBuscado is None:
+        if alumnos[indice]["Nombre"] == nombre:
+            alumnoBuscado = alumnos[indice]
+        indice += 1
+    return alumnoBuscado
 
 
 def imprimirAlumno(alumno: dict | None) -> None:
