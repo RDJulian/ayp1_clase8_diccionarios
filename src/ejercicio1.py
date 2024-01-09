@@ -1,101 +1,84 @@
-from os import path
-from pickle import dump, load
+from lectura_archivo import guardar_datos, cargar_datos
 
 
-# Pickle: ignorar
-def cargarDatos() -> list:
+def agregar_alumno(alumnos: list) -> None:
     """
     PRE:
-    POST: Devuelve la lista si habia un archivo guardado o una vacia de lo contrario.
-    """
-    if path.isfile("alumnos"):
-        with open("alumnos", "rb") as archivo:
-            alumnos = load(archivo)
-        return alumnos
-    else:
-        return []
-
-
-def guardarDatos(alumnos: list) -> None:
-    """
-    PRE:
-    POST: Guarda la lista (vacia o no) en un archivo binario.
-    """
-    with open("alumnos", "wb") as archivo:
-        dump(alumnos, archivo)
-
-
-# Solucion
-def agregarAlumno(alumnos: list) -> None:
-    """
-    PRE:
-    POST: Se agrega un nuevo alumno a la lista, con un Padron (int), Nombre (str) y Apellido (str).
+    POST: Agrega un nuevo alumno a la lista, con un Padron, Nombre y Apellido.
     """
     padron = int(input("Ingrese el padron: "))
     nombre = input("Ingrese el nombre: ")
     apellido = input("Ingrese el apellido: ")
+    # Se podría chequear que no exista.
     alumno = {"Padron": padron, "Nombre": nombre, "Apellido": apellido}
     alumnos.append(alumno)
 
 
-def buscarAlumno(alumnos: list) -> dict | None:
+def buscar_alumno(alumnos: list) -> int:
     """
     PRE: Los alumnos que esten en la lista deben tener una llave "Nombre".
-    POST: Devuelve el alumno buscado si coincide el nombre ingresado, None en caso contrario.
+    POST: Devuelve el indice del alumno buscado si coincide el nombre ingresado,
+    -1 en caso contrario.
     """
     nombre = input("Ingrese el nombre a buscar: ")
-    indice = 0
-    alumnoBuscado = None
-    while indice < len(alumnos) and alumnoBuscado is None:
-        if alumnos[indice]["Nombre"] == nombre:
-            alumnoBuscado = alumnos[indice]
-        indice += 1
-    return alumnoBuscado
+    i = 0
+    indice = -1
+    while i < len(alumnos) and indice == -1:
+        if alumnos[i]["Nombre"] == nombre:
+            indice = i
+        else:
+            i += 1
+    return indice
 
 
-def imprimirAlumno(alumno: dict | None) -> None:
+def imprimir_alumno(alumno: dict) -> None:
     """
-    PRE: El alumno debe tener las tres llaves ("Nombre", "Apellido", "Padron"), en caso de no ser None.
-    POST: Se imprime la información del alumno, o un mensaje de error si se recibe None.
+    PRE: El alumno debe tener las tres llaves ("Nombre", "Apellido", "Padron").
+    POST: Imprime la información del alumno.
     """
-    if alumno is not None:
-        print(f'Padron: {alumno["Padron"]}\nNombre: {alumno["Nombre"]}\nApellido: {alumno["Apellido"]}\n')
-    else:
-        print("El alumno no fue encontrado.\n")
+    print(f'Padron: {alumno["Padron"]}\nNombre: {alumno["Nombre"]}\nApellido: {alumno["Apellido"]}\n')
 
 
-def imprimirAlumnos(alumnos: list) -> None:
+def imprimir_alumnos(alumnos: list) -> None:
     """
     PRE: Todos alumnos deben tener las tres llaves ("Nombre", "Apellido", "Padron").
-    POST: Se imprime la información de todos los alumnos en la lista.
+    POST: Imprime la información de todos los alumnos en la lista.
     """
     for alumno in alumnos:
-        imprimirAlumno(alumno)
+        imprimir_alumno(alumno)
 
 
-def imprimirMenu() -> None:
+def imprimir_opciones() -> None:
     """
     PRE:
-    POST: Se imprime el menu de opciones válidas.
+    POST: Imprime el menu de opciones válidas.
     """
     print(
         f"1. Agregar alumno\n2. Buscar alumno por nombre\n3. Imprimir la informacion de todos los alumnos\n4. Salir\n")
 
 
-def main() -> None:
-    alumnos = cargarDatos()
+def main():
+    datos = cargar_datos("alumnos")
+    if datos:
+        alumnos = datos
+    else:
+        alumnos = []
     opcion = 0
     while not opcion == 4:
-        imprimirMenu()
+        imprimir_opciones()
         opcion = int(input("Ingrese una opcion: "))
         if opcion == 1:
-            agregarAlumno(alumnos)
+            agregar_alumno(alumnos)
         elif opcion == 2:
-            alumno = buscarAlumno(alumnos)
-            imprimirAlumno(alumno)
+            indice = buscar_alumno(alumnos)
+            if indice == -1:
+                print("El alumno no fue encontrado.")
+            else:
+                imprimir_alumno(alumnos[indice])
         elif opcion == 3:
-            imprimirAlumnos(alumnos)
-    guardarDatos(alumnos)
+            imprimir_alumnos(alumnos)
+    guardar_datos(alumnos, "alumnos")
 
 
-main()
+if __name__ == "__main__":
+    main()

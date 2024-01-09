@@ -4,9 +4,11 @@ En esta clase vamos a ver diccionarios: qué son, como se usan y los metodos que
 
 # Presentación:
 
-[Enlace a la presentación](https://docs.google.com/presentation/d/1sOnLCIYSglnRJEieR-R55GDUoq-nIQq1QR2lYf--cTA/edit?usp=sharing\])
+[Enlace a la presentación](https://docs.google.com/presentation/d/1V9ZiCz2pGA130qmPhLZQypjRYZWHrRzHhK4WxCWr0bU/edit?usp=sharing)
 
 # Ejercicios:
+
+### Ejercicio 1:
 
 Escribir un programa que permita:
 
@@ -14,6 +16,8 @@ Escribir un programa que permita:
 2. Permitir la busqueda de un alumno por su nombre. Imprimir su información si se encuentra, o un mensaje de error si
    no.
 3. Imprimir la información de todos los alumnos guardados. Pueden ser guardados en una lista.<br><br>
+
+### Ejercicio 2:
 
 La marca de prendas deportivas Algodidas, tras la victoria albiceleste en el mundial de la FIFA, tiene una demanda
 altísima por las camisetas de los jugadores. Ante tal volumen de compras, decidieron pedirle ayuda a informáticos para
@@ -56,13 +60,6 @@ modificación, cumpliendo las siguientes consignas:
     <li>Salir del programa.
     </li>
 </ol>
-<strong>IMPORTANTE</strong>: Considerar para todas las opciones los casos bordes o no válidos.
-
-# Tarea:
-
-Refactorizar y ampliar el codigo del Ejercicio 2, utilizando los metodos vistos y los conocimientos adquiridos hasta
-ahora. Pensar si es conveniente iterar, validar los valores ingresados, mejorar la interaccion con el usuario, escribir
-pre y postcondiciones, etc.
 
 # Documentación:
 

@@ -22,14 +22,15 @@ def main():
         print(f"{llave}: {valor}")
 
     # Comparando
-    otroAlumno = {"Apellido": "Ruiz Diaz", "Nombre": "Julian"}
-    print(alumno == otroAlumno)
+    alumno2 = {"Apellido": "Ruiz Diaz", "Nombre": "Julian"}
+    print(alumno == alumno2)
 
     # Copia (TENER MUCHO CUIDADO)
-    otroAlumno = alumno
+    alumno2 = alumno
     alumno["Padron"] = 108415
-    print(otroAlumno)
     print(alumno)
+    print(alumno2)
 
 
-main()
+if __name__ == "__main__":
+    main()
