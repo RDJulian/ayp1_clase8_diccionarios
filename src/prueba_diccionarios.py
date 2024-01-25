@@ -14,7 +14,7 @@ def main():
 
     # Modificación
     alumno["Padron"] = 108410
-    # La clave "Padron" ya existía.
+    # La llave "Padron" ya existía.
     print(alumno, end="\n\n")
 
     # Baja
@@ -38,17 +38,35 @@ def main():
     print(alumno2, end="\n\n")
 
     # Demostración de las distintas iteraciones posibles:
-    for clave in alumno.keys():
-        print(clave)
-        print(alumno[clave])
+    alumno = {"Nombre": "Julian", "Apellido": "Ruiz Diaz"}
+    for llave in alumno.keys():
+        print(f"{llave} -> {alumno[llave]}")
     print()
 
     for valor in alumno.values():
         print(valor)
     print()
 
-    for clave, valor in alumno.items():
-        print(f"{clave} : {valor}")
+    for llave, valor in alumno.items():
+        print(f"{llave} : {valor}")
+    print()
+
+    print(list(alumno.values()))
+
+    # ¿Podemos pasar de una lista a un diccionario? Si:
+
+    # De diccionario a lista.
+    alumno_lista = list(alumno.items())
+    print(alumno_lista)
+
+    # De lista a diccionario se puede usar "list comprehension"
+    alumno = {llave: valor for llave, valor in alumno_lista}
+    print(alumno)
+
+    lista_cuadrados = [x ** 2 for x in range(10)]
+    print(lista_cuadrados)
+
+    print(list(alumno.values()))
 
 
 if __name__ == "__main__":
