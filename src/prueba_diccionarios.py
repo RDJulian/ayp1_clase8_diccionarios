@@ -51,10 +51,7 @@ def main():
         print(f"{llave} : {valor}")
     print()
 
-    print(list(alumno.values()))
-
     # ¿Podemos pasar de una lista a un diccionario? Si:
-
     # De diccionario a lista.
     alumno_lista = list(alumno.items())
     print(alumno_lista)
@@ -62,11 +59,6 @@ def main():
     # De lista a diccionario se puede usar "list comprehension"
     alumno = {llave: valor for llave, valor in alumno_lista}
     print(alumno)
-
-    lista_cuadrados = [x ** 2 for x in range(10)]
-    print(lista_cuadrados)
-
-    print(list(alumno.values()))
 
 
 if __name__ == "__main__":

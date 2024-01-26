@@ -1,3 +1,6 @@
+from lectura_archivo import cargar_datos, guardar_datos
+
+# Se puede discutir si estas constantes son necesarias.
 NOMBRE = "NOMBRE"
 APELLIDO = "APELLIDO"
 PADRON = "PADRON"
@@ -23,7 +26,7 @@ def buscar_alumno(alumnos: list) -> int:
     return indice
 
 
-def imprimir_alumnos(alumnos):
+def imprimir_alumnos(alumnos: list) -> None:
     for alumno in alumnos:
         print(f"Nombre -> {alumno[NOMBRE]}")
         print(f"Apellido -> {alumno[APELLIDO]}")
@@ -31,8 +34,16 @@ def imprimir_alumnos(alumnos):
         print()
 
 
-def main():
+def cargar_alumnos() -> list:
+    datos = cargar_datos("alumnos")
     alumnos = []
+    if datos:
+        alumnos = datos
+    return alumnos
+
+
+def main():
+    alumnos = cargar_alumnos()
     opcion = "0"
     while opcion != "4":
         print("1. Alta\n2. Consulta\n3. Listar\n4. Salir")
@@ -50,6 +61,7 @@ def main():
             imprimir_alumnos(alumnos)
         elif opcion != "4":
             print("Opcion incorrecta.")
+    guardar_datos(alumnos, "alumnos")
 
 
 if __name__ == "__main__":
