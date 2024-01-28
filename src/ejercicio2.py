@@ -1,5 +1,9 @@
 from lectura_archivo import cargar_datos, guardar_datos
 
+ALTA_MODELO = "1"
+MOSTRAR_MODELO = "2"
+SALIR = "7"
+
 
 def crear_modelo(modelos: dict) -> None:
     nombre = input("Ingrese Nombre del modelo: ")
@@ -27,14 +31,16 @@ def cargar_modelos() -> dict:
 
 def main():
     modelos = cargar_modelos()
-    opcion = "0"
-    while opcion != "7":
+    opcion = ""
+    while opcion != SALIR:
         opcion = input("Ingrese una opcion: ")
-        if opcion == "1":
+        if opcion == ALTA_MODELO:
             crear_modelo(modelos)
-        elif opcion == "2":
+        elif opcion == MOSTRAR_MODELO:
             # Completar
             pass
+        elif opcion != SALIR:
+            print("Opcion incorrecta.")
     guardar_datos(modelos, "modelos")
 
 

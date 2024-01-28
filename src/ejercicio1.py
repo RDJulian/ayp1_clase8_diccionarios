@@ -1,9 +1,16 @@
 from lectura_archivo import cargar_datos, guardar_datos
 
-# Se puede discutir si estas constantes son necesarias.
+# Se puede discutir si estas tres constantes son necesarias.
 NOMBRE = "NOMBRE"
 APELLIDO = "APELLIDO"
 PADRON = "PADRON"
+
+ALTA_ALUMNO = "1"
+BUSCAR_ALUMNO = "2"
+LISTAR_ALUMNOS = "3"
+SALIR = "4"
+
+NO_ENCONTRADO = -1
 
 
 def crear_alumno() -> dict:
@@ -14,11 +21,10 @@ def crear_alumno() -> dict:
     return alumno
 
 
-def buscar_alumno(alumnos: list) -> int:
-    nombre = input("Ingrese un nombre a buscar: ")
-    indice = -1
+def buscar_alumno(alumnos: list, nombre: str) -> int:
+    indice = NO_ENCONTRADO
     i = 0
-    while i < len(alumnos) and indice == -1:
+    while i < len(alumnos) and indice == NO_ENCONTRADO:
         if alumnos[i][NOMBRE] == nombre:
             indice = i
         else:
@@ -44,22 +50,23 @@ def cargar_alumnos() -> list:
 
 def main():
     alumnos = cargar_alumnos()
-    opcion = "0"
-    while opcion != "4":
+    opcion = ""
+    while opcion != SALIR:
         print("1. Alta\n2. Consulta\n3. Listar\n4. Salir")
         opcion = input("Ingrese una opcion: ")
-        if opcion == "1":
+        if opcion == ALTA_ALUMNO:
             alumno = crear_alumno()
             alumnos.append(alumno)
-        elif opcion == "2":
-            indice = buscar_alumno(alumnos)
-            if indice != -1:
+        elif opcion == BUSCAR_ALUMNO:
+            nombre = input("Ingrese un nombre a buscar: ")
+            indice = buscar_alumno(alumnos, nombre)
+            if indice != NO_ENCONTRADO:
                 print(alumnos[indice])
             else:
                 print("El alumno no fue encontrado.")
-        elif opcion == "3":
+        elif opcion == LISTAR_ALUMNOS:
             imprimir_alumnos(alumnos)
-        elif opcion != "4":
+        elif opcion != SALIR:
             print("Opcion incorrecta.")
     guardar_datos(alumnos, "alumnos")
 
